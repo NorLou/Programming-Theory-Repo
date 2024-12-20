@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     protected float fleeRadius = 12f; //radius at which enemy starts to flee
     private Transform player; //ref. to player's position 
     
-    public float FleeSpeed
+    public float FleeSpeed //ENCAPSULTION
     {
         get { return fleeSpeed; }
         protected set { fleeSpeed = Mathf.Max(0f, value); } //speed can't go below 0
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void FleeFromPlayer()
+    protected virtual void FleeFromPlayer() //ABSTRACTION
     {
         // Calculate the direction away from the player
         Vector3 directionAwayFromPlayer = transform.position - player.position;
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(directionAwayFromPlayer.normalized * fleeSpeed * Time.deltaTime, Space.World);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision) //ABSTRACTION
     {
         if (collision.gameObject.CompareTag("Player"))
         {

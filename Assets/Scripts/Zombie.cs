@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : Enemy
+public class Zombie : Enemy //INHERITANCE
 {
     public float jumpHeight = 1f;  // Height of the jump
     public float jumpSpeed = 2f;   // Speed of the jump motion
@@ -12,12 +12,12 @@ public class Zombie : Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
-        base.Start();  // Call the base class Start method
+        base.Start();  // INHERITANCE and Call the base class Start method 
         FleeSpeed = 7f; // Override the speed to 7 for Zombie
         originalYPosition = transform.position.y;  // Store y position
     }
 
-    protected override void FleeFromPlayer()
+    protected override void FleeFromPlayer() //POLYMORPHISM
     {
         base.FleeFromPlayer(); // Retain the basic fleeing behavior
 
